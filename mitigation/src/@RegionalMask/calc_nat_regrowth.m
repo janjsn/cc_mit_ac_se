@@ -1,0 +1,20 @@
+function [ obj ] = calc_nat_regrowth( obj, Natural_regrowth )
+
+obj.acs_nr_cropland = obj.cropland_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_abandoned_cropland = obj.abandoned_cropland_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_ac_ton_per_ha;
+obj.acs_nr_cropland_se5 = obj.cropland_soil_erosion_above_5_ton_perHa_perYear_unit_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_se10 = obj.cropland_soil_erosion_above_5_ton_perHa_perYear_unit_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_ilswe1 = obj.cropland_ilswe_1_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_ilswe2 = obj.cropland_ilswe_2_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_ilswe3 = obj.cropland_ilswe_3_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_ilswe4 = obj.cropland_ilswe_4_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_ilswe5 = obj.cropland_ilswe_5_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+obj.acs_nr_cropland_floods = obj.cropland_floods_hectare.*Natural_regrowth.aboveground_carbon_sequestration_rate_cropland_ton_per_ha;
+
+obj.acs_nr_rate_cropland = obj.acs_nr_cropland./obj.cropland_hectare;
+obj.acs_nr_rate_cropland(isnan(obj.acs_nr_rate_cropland)) = 0;
+obj.acs_nr_rate_abandoned_cropland = obj.acs_nr_abandoned_cropland./obj.abandoned_cropland_hectare;
+obj.acs_nr_rate_abandoned_cropland(isnan(obj.acs_nr_rate_abandoned_cropland)) = 0;
+
+end
+
